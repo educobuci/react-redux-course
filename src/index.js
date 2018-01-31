@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {Provider} from 'react-redux';
 import App from './App';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+import store from './store';
 
-const state = {
-  todos: [
-    {id: 1, name: "Learn React", isComplete: true},
-    {id: 2, name: "Learn Redux", isComplete: false},
-    {id: 3, name: "Profit", isComplete: false}
-  ]
-};
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
-ReactDOM.render(<App todos={state.todos} />, document.getElementById('root'));
 registerServiceWorker();
